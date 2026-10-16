@@ -7,6 +7,15 @@ int main(int argc, char* argv[])
 {
     unsigned int n; // число, "корень" которого надо найти.
     unsigned int m; // "корень" числа.
+    // Установка русской локали для терминала Windows 11
+    // 1-й способ. Выплнить внешнюю команду.
+    system("chcp 65001 >nul");
+    // 2 - й способ. Вызов библиотечной функции.
+    setlocale(LC_ALL, "russian.65001"); 
+    // 3 - й способ. Создать переменную типа локали.
+    std::locale rus_locale = std::locale("russian.65001"); 
+    // 3 - й способ. Выбор кодировки(локали) терминала
+    std::cout.imbue(std::locale::global(rus_locale)); 
     std::cout << "Введите число: ";
     std::cin >> n; 
     m = n;  // Начальное значение "корня" числа
